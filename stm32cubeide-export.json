@@ -1,0 +1,174 @@
+{
+  "name": "STM32F302R8-Nucleo",
+  "source_ide": "STM32CubeIDE",
+  "path": "C:/Users/gcuadrado/STM32Cube/Repository/STM32Cube_FW_F3_V1.11.6/Projects/STM32F302R8-Nucleo/Examples_LL/I2C/I2C_OneBoard_AdvCommunication_DMAAndIT/SW4STM32/STM32F302R8-Nucleo",
+  "languages": [
+      "C"
+  ],
+  "configurations": [
+    {
+      "name": "Debug",
+      "output_filename": "STM32F302R8-Nucleo",
+      "type": "Executable",
+      "toolchain_type": "GCC",
+      "toolchain_prefix": "arm-none-eabi-",
+      "mcu": "STM32F302R8Tx",
+      "board": "NUCLEO-F302R8",
+      "sources": [
+        { "path": "../startup_stm32f302x8.s" },
+        { "path": "../../readme.txt" },
+        { "path": "../../Src/system_stm32f3xx.c" },
+        { "path": "../../../../../../../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.c" },
+        { "path": "../../Src/main.c" },
+        { "path": "../../Src/stm32f3xx_it.c" }
+      ],
+      "tools": [
+            {
+              "type": "c_assembler",
+              "options": {
+                      "option.debuglevel": "-g3",
+                      "option.preprocessassembler": "-x assembler-with-cpp"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-g3",
+                  "-x",
+                  "assembler-with-cpp"
+              ]
+            },
+            {
+              "type": "c_compiler",
+              "options": {
+                      "option.languagestandard": "-std=gnu11",
+                      "option.debuglevel": "-g3",
+                      "option.definedsymbols": "-DSTM32F302x8, -DUSE_STM32F3XX_NUCLEO",
+                      "option.includepaths": "-I../../../Inc, -I../../../../../../../../Drivers/CMSIS/Device/ST/STM32F3xx/Include, -I../../../../../../../../Drivers/STM32F3xx_HAL_Driver/Inc, -I../../../../../../../../Drivers/CMSIS/Include",
+                      "option.optimization.level": "-Os",
+                      "option.ffunction": "-ffunction-sections",
+                      "option.warnings.all": "-Wall",
+                      "option.fstackusage": "-fstack-usage",
+                      "option.cyclomaticcomplexity": "-fcyclomatic-complexity"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-std=gnu11",
+                  "-g3",
+                  "-DSTM32F302x8",
+                  "-DUSE_STM32F3XX_NUCLEO",
+                  "-I../../../Inc",
+                  "-I../../../../../../../../Drivers/CMSIS/Device/ST/STM32F3xx/Include",
+                  "-I../../../../../../../../Drivers/STM32F3xx_HAL_Driver/Inc",
+                  "-I../../../../../../../../Drivers/CMSIS/Include",
+                  "-Os",
+                  "-ffunction-sections",
+                  "-Wall",
+                  "-fstack-usage",
+                  "-fcyclomatic-complexity"
+              ]
+            },
+            {
+              "type": "cpp_compiler",
+              "options": {
+                      "option.languagestandard": "-std=gnu++14",
+                      "option.debuglevel": "-g3",
+                      "option.optimization.level": "-O0",
+                      "option.ffunction": "-ffunction-sections",
+                      "option.noexceptions": "-fno-exceptions",
+                      "option.nortti": "-fno-rtti",
+                      "option.nousecxaatexit": "-fno-use-cxa-atexit",
+                      "option.warnings.all": "-Wall",
+                      "option.fstackusage": "-fstack-usage",
+                      "option.cyclomaticcomplexity": "-fcyclomatic-complexity"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-std=gnu++14",
+                  "-g3",
+                  "-O0",
+                  "-ffunction-sections",
+                  "-fno-exceptions",
+                  "-fno-rtti",
+                  "-fno-use-cxa-atexit",
+                  "-Wall",
+                  "-fstack-usage",
+                  "-fcyclomatic-complexity"
+              ]
+            },
+            {
+              "type": "c_linker",
+              "options": {
+                      "option.script": "-T\"../STM32F302R8Tx_FLASH.ld\"",
+                      "option.systemcalls": "com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.linker.option.systemcalls.value.none",
+                      "option.map": "-Wl,-Map=\"STM32F302R8-Nucleo.map\"",
+                      "option.gcsections": "-Wl,--gc-sections",
+                      "option.static": "-static",
+                      "option.generate.secure.lib": "-Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o",
+                      "option.libmath": "-Wl,--start-group -lc -lm -Wl,--end-group",
+                      "option.otherflags": "[-specs=rdimon.specs -lc -lrdimon]"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-T\"../STM32F302R8Tx_FLASH.ld\"",
+                  "-Wl,-Map=\"STM32F302R8-Nucleo.map\"",
+                  "-Wl,--gc-sections",
+                  "-static"
+              ]
+            },
+            {
+              "type": "cpp_linker",
+              "options": {
+                      "option.script": "-T\"\"",
+                      "option.systemcalls": "--specs=nosys.specs",
+                      "option.map": "-Wl,-Map=\"STM32F302R8-Nucleo.map\"",
+                      "option.gcsections": "-Wl,--gc-sections",
+                      "option.static": "-static",
+                      "option.generate.secure.lib": "-Wl,--cmse-implib -Wl,--out-implib=./secure_nsclib.o",
+                      "option.libmath": "-Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-T\"\"",
+                  "--specs=nosys.specs",
+                  "-Wl,-Map=\"STM32F302R8-Nucleo.map\"",
+                  "-Wl,--gc-sections",
+                  "-static"
+              ]
+            },
+            {
+              "type": "c_archiver",
+              "options": {
+                      "option.replace": "-r"
+              },
+              "flags": [
+                  "-mfpu=fpv4-sp-d16",
+                  "-mfloat-abi=hard",
+                  "-mthumb",
+                  "--specs=nano.specs",
+                  "-mcpu=cortex-m4",
+                  "-r"
+              ]
+            }
+        ]
+    }
+  ]
+}
