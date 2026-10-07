@@ -49,8 +49,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 )
 
 # Linker options
-target_link_options(${PROJECT_NAME} PRIVATE 
+target_link_options(${PROJECT_NAME} PRIVATE
   # User defined linker options
+  # Required link option for semihosting to work correctly
+  -specs=rdimon.specs -lc -lrdimon
 )
 
 # Add additional linker search directories

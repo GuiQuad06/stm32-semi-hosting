@@ -115,8 +115,8 @@ void Handle_I2C_Master_Transmit(void);
 void Handle_I2C_Master_TransmitReceive(void);
 void UserButton_Init(void);
 
-#if 0
-extern void initialise_monitor_handles(void);	/*rtt*/
+#if defined(__GNUC__)
+extern void initialise_monitor_handles(void); /*rtt*/
 #endif
 
 /* Private functions ---------------------------------------------------------*/
@@ -128,8 +128,10 @@ extern void initialise_monitor_handles(void);	/*rtt*/
  */
 int main(void)
 {
-#if 0
-  initialise_monitor_handles();	/*rtt*/
+#if defined(__GNUC__)
+    initialise_monitor_handles(); /*rtt*/
+    setvbuf(stdout, NULL, _IONBF, 0);
+    printf("Semihosting initialized\n");
 #endif
 
     /* Configure the system clock to 64 MHz */
@@ -697,7 +699,7 @@ void Handle_I2C_Master_Transmit(void)
     LL_I2C_ClearFlag_STOP(I2C2);
 
     /* Display through external Terminal IO the Slave Answer received */
-    // printf("%s : %s\n\r", (char*)(aCommandCode[ubMasterCommandIndex][0]), (char*)aMasterReceiveBuffer);
+    printf("%s : %s\n\r", (char *) (aCommandCode[ubMasterCommandIndex][0]), (char *) aMasterReceiveBuffer);
 
     /* Turn LED2 On */
     /* Master sequence completed successfully*/
@@ -844,7 +846,7 @@ void Handle_I2C_Master_TransmitReceive(void)
     LL_I2C_ClearFlag_STOP(I2C2);
 
     /* Display through external Terminal IO the Slave Answer received */
-    // printf("%s : %s\n\r", (char*)(aCommandCode[ubMasterCommandIndex][0]), (char*)aMasterReceiveBuffer);
+    printf("%s : %s\n\r", (char *) (aCommandCode[ubMasterCommandIndex][0]), (char *) aMasterReceiveBuffer);
 
     /* Turn LED2 On */
     /* Master sequence completed successfully*/
